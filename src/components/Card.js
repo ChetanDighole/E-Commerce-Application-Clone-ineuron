@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 const Card = ({ productDedails }) => {
 
     const [toggleRead, setToggleRead] = useState(false)
+    const [toggleTitle, setToggleTitle] = useState(false)
 
     const { title, price, description, image } = productDedails
 
@@ -12,15 +13,29 @@ const Card = ({ productDedails }) => {
 
         <div className="flex flex-col justify-center gap-2 p-10 max-w-[400px] bg-white rounded-lg shadow-2xl">
             <div className="">
-                <p className="text-2xl uppercase text-gray-900 font-bold">{title}</p>
+
+
                 {
-                    (!toggleRead)? <p>{description.slice(0,100)}
-                    <span onClick={()=>setToggleRead(true)} className='text-blue-400 font-semibold cursor-pointer'> ...read more</span>
-                    </p> : <p>{description}</p>
+                    (!toggleTitle) ? <p className="text-2xl uppercase text-gray-900 font-bold">{title.slice(0, 40)}
+                        <span onClick={() => setToggleTitle(true)} className='text-blue-400 text-sm lowercase cursor-pointer'> ...read more</span>
+                    </p> : <p className="text-2xl uppercase text-gray-900 font-bold">{title}
+                        <span onClick={() => setToggleTitle(false)} className='text-blue-400 text-sm lowercase cursor-pointer'> read less</span>
+                    </p>
+                }
+
+                {
+                    (!toggleRead) ? <p>{description.slice(0, 100)}
+                        <span onClick={() => setToggleRead(true)} className='text-blue-400 font-semibold cursor-pointer'> ...read more</span>
+                    </p> : <p>{description}
+                        <span onClick={() => setToggleRead(false)} className='text-blue-400 font-semibold cursor-pointer'> read less</span>
+                    </p>
                 }
             </div>
 
-            <img alt='img' src={image} className="w-[230px]" />
+            <div className='h-[230px]'>
+
+                <img alt='img' src={image} className="h-[100%]" />
+            </div>
 
             <div className="grid gap-10">
 

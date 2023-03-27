@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
-import { FAKE_STORE_URL , productCategories } from '../helper'
+import { useSelector } from 'react-redux'
+import { FAKE_STORE_URL } from '../helper'
 import ButtonCategory from './ButtonCategory'
 import Card from './Card'
 
@@ -24,26 +25,36 @@ const MainContainer = () => {
 
     const [products, setProducts] = useState([])
 
-    console.log(products)
+    const filterProduct = useSelector(store => store.filter.items)
 
 
     return (
         <div>
 
-            <div className='flex justify-center items center gap-6 flex-wrap'>
-                {
-                    productCategories.map((eachProduct , index) =>
-                        <ButtonCategory key={index} categoryName={eachProduct} />
-                    )
-                }
+            <div className='p-4'>
+
+                <ButtonCategory product={products} />
             </div>
+
             <div className='flex justify-center items-center gap-4 flex-wrap'>
 
                 {
-                    products.map((eachProduct)=>
+                    filterProduct.map((eachProduct)=>
                     <Card key={eachProduct.id} productDedails={eachProduct} />
                     )
                 }
+
+                {/* {
+                    (products.size === 0)? 
+                    products.map((eachProduct)=>
+                    <Card key={eachProduct.id} productDedails={eachProduct} />
+                    )
+                    : filterProduct.map((eachProduct)=>
+                    <Card key={eachProduct.id} productDedails={eachProduct} />
+                    ) 
+                    
+                } */}
+
 
             </div>
 

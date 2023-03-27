@@ -6,7 +6,7 @@ const Body = () => {
 
     
     return (
-        <div>
+        <div className='bg-[#f5f5f5]'>
 
             <Outlet />
 

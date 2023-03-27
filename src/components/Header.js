@@ -18,7 +18,7 @@ const Header = () => {
         </div>
 
         <div className='flex items-center gap-4'>
-            <h3>EN</h3>
+            <h3>&#x1f1f3; EN</h3>
             <button onClick={()=>setIsLog(!isLog)}>
                 { (isLog) ? 'Log out' : 'Log in'}
             </button>
