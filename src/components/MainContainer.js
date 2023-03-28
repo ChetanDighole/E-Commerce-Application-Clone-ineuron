@@ -28,6 +28,7 @@ const MainContainer = () => {
     const filterProduct = useSelector(store => store.filter.items)
 
 
+
     return (
         <div>
 
@@ -38,22 +39,20 @@ const MainContainer = () => {
 
             <div className='flex justify-center items-center gap-4 flex-wrap'>
 
+                {/* {
+                    (filterProduct).map((eachProduct)=>
+                    <Card key={eachProduct.id} productDedails={eachProduct} />
+                    )
+                } */}
+
                 {
-                    filterProduct.map((eachProduct)=>
+                    (filterProduct.length === 0) ? (products).map((eachProduct)=>
+                    <Card key={eachProduct.id} productDedails={eachProduct} />
+                    ) : 
+                    (filterProduct).map((eachProduct)=>
                     <Card key={eachProduct.id} productDedails={eachProduct} />
                     )
                 }
-
-                {/* {
-                    (products.size === 0)? 
-                    products.map((eachProduct)=>
-                    <Card key={eachProduct.id} productDedails={eachProduct} />
-                    )
-                    : filterProduct.map((eachProduct)=>
-                    <Card key={eachProduct.id} productDedails={eachProduct} />
-                    ) 
-                    
-                } */}
 
 
             </div>
