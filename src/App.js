@@ -1,12 +1,12 @@
 import Body from "./components/Body";
-import Header from "./components/Header";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import Cart from "./components/Cart";
 
 
-const appRouter = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <Body />,
@@ -14,6 +14,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/',
         element: <MainContainer />
+      },
+      {
+        path: 'cart',
+        element: <Cart />
       }
     ]
   }
@@ -22,13 +26,15 @@ const appRouter = createBrowserRouter([
 
 function App() {
   return (
-    <>
-      <Provider store={store}>
-        <Header />
+    <div className='bg-[#F1F3F6]'>
 
-        <RouterProvider router={appRouter} />
+      <Provider store={store}>
+
+
+        <RouterProvider router={router} />
       </Provider>
-    </>
+    </div>
+
   );
 }
 

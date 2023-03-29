@@ -39,12 +39,6 @@ const MainContainer = () => {
 
             <div className='flex justify-center items-center gap-4 flex-wrap'>
 
-                {/* {
-                    (filterProduct).map((eachProduct)=>
-                    <Card key={eachProduct.id} productDedails={eachProduct} />
-                    )
-                } */}
-
                 {
                     (filterProduct.length === 0) ? (products).map((eachProduct)=>
                     <Card key={eachProduct.id} productDedails={eachProduct} />

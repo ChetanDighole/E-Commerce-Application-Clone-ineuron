@@ -2,16 +2,24 @@
 import React, { useState } from 'react'
 import logo from '../assets/logo.png'
 import india from '../assets/india.jpg'
-const Header = () => {
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+const Header = () => {
 
     const [isLog, setIsLog] = useState(false)
 
+    const cart = useSelector(store => store.cart.items)
+
     return (
-        <div className='flex justify-around items-center bg-[#131A22] text-white'>
+        <div className='flex justify-around items-center bg-[#131921] text-white font-bold'>
             <div>
-                <img alt='logo.png' src={logo} className="w-28 invert" />
+                <a href='/'><img alt='logo.png' src={logo} className="w-28 invert" /></a>
             </div>
+
+            <Link to={'/'}>
+            <h3>Home</h3>
+            </Link>
 
             <div className='basis-1/2'>
                 <input type='text' placeholder='search' className='p-2 w-[100%] border border-black rounded-sm' />
@@ -27,9 +35,7 @@ const Header = () => {
                 </button>
             </div>
 
-            <div>
-                <h2 className='font-bold '>Cart</h2>
-            </div>
+            <Link to={'/cart'}>Cart <span className='bg-white text-[#131921] p-1 rounded'>{cart.length}</span></Link>
 
         </div>
     )
