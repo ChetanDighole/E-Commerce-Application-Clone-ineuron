@@ -9,3 +9,9 @@ export const categoryList = (product, category) => {
 
     return newVal = ['All' , ...new Set(newVal)]
 }
+
+export const filterResult = (json , inputvalue) => {
+    const result = json.filter((eachEle) => eachEle.title?.toLowerCase().includes(inputvalue?.toLowerCase()))
+    console.log(result)
+    return result
+}

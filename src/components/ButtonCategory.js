@@ -16,7 +16,7 @@ const ButtonCategory = ({ product }) => {
     }
  
     return (
-        <div className='flex justify-center items-center gap-4 p-2'>
+        <div className='flex justify-center items-center gap-4 p-2 flex-wrap'>
 
             {
                 categories.map((eachEle, index) => (
