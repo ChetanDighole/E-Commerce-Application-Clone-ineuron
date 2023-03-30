@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <div className='flex justify-around items-center bg-[#131921] text-white font-bold'>
             <div>
-                <a href='/'><img alt='logo.png' src={logo} className="w-28 invert" /></a>
+                <a href='/'><img alt='logo.png' src={logo} className="w-28" /></a>
             </div>
 
             <Link to={'/'}>
