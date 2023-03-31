@@ -11,9 +11,6 @@ const Card = ({ productDedails, cartCard }) => {
     const { title, price, description, image, id } = productDedails
 
 
-    // #######################################
-
-
     const dispatch = useDispatch()
 
     const dispatchToCart = () => {
@@ -24,8 +21,6 @@ const Card = ({ productDedails, cartCard }) => {
     const productViewDetails = () => {
         navigate('/product/' + id)
     }
-
-    // #######################################
 
 
     return (

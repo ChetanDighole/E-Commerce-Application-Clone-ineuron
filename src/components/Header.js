@@ -8,7 +8,7 @@ import { FAKE_STORE_URL , filterResult } from '../helper';
 
 const Header = () => {
 
-    const [inputSearch, setInputSearch] = useState('') //undefiend becoz in first render it load all the data in search result
+    const [inputSearch, setInputSearch] = useState('')
 
     const [listDisplay, setListDisplay] = useState(false)
 
@@ -62,10 +62,9 @@ const Header = () => {
                     <div className='absolute bg-slate-200 mx-6 max-w-[700px]'>
                         {
                             bigData.map((eachEle,index) => 
-                            // <Link   key={index} to={`/product/${eachEle.id}`}>
 
-                                <li key={index} className="list-none border border-b-1 border-slate-400 text-[#131921]">🔍 {eachEle.title}</li>
-                            // </Link>
+                                <li key={index} className="list-none border border-b-1 border-slate-400 text-[#131921]">✅ {eachEle.title}</li>
+                            
                             )
                         }
                     </div> : <></>

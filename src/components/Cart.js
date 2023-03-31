@@ -20,19 +20,21 @@ const Cart = () => {
     <div className='flex flex-col item-center'>
       <div className='flex justify-around items-center w-[100%] p-4'>
         <h1 className='font-bold text-4xl'>Your Cart</h1>
-        <button onClick={()=>clearCartfunc()} className='bg-yellow-400 px-4 py-1'>clear cart</button>
 
-        <Link to={'/checkout'}>
+        <div className='flex flex-col md:flex-row gap-4'>
+          <button onClick={() => clearCartfunc()} className='bg-yellow-400 px-4 py-1'>clear cart</button>
+          <Link to={'/checkout'}>
 
-        <button  className='bg-yellow-400 px-4 py-1'>checkout</button>
-        </Link>
+            <button className='bg-green-400 px-4 py-1'>checkout</button>
+          </Link>
+        </div>
       </div>
 
       <div className='flex justify-center items-center gap-4 flex-wrap p-4'>
 
         {
-          cartProduct.map((eachProduct,index)=> 
-          <Card key={index} productDedails={eachProduct} cartCard={true} index={index}/>
+          cartProduct.map((eachProduct, index) =>
+            <Card key={index} productDedails={eachProduct} cartCard={true} index={index} />
           )
         }
 

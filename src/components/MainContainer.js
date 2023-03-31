@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { FAKE_STORE_URL } from '../helper'
 import ButtonCategory from './ButtonCategory'
 import Card from './Card'
+import Shimmer from './Shimmer'
 
 const MainContainer = () => {
 
@@ -30,7 +31,7 @@ const MainContainer = () => {
 
 
 
-    return (
+    return (products.length===0)? <Shimmer /> : (
         <div>
 
             <div className='p-4'>
@@ -42,16 +43,12 @@ const MainContainer = () => {
 
                 {
                     (filterProduct.length === 0) ? (products).map((eachProduct)=>
-                    // <Link to={'/product/' + eachProduct.id} key={eachProduct.id}>
 
                         <Card key={eachProduct.id} productDedails={eachProduct} />
-                    // </Link>
                     ) : 
                     (filterProduct).map((eachProduct)=>
-                    // <Link to={'/product/' + eachProduct.id} key={eachProduct.id}>
 
                         <Card key={eachProduct.id} productDedails={eachProduct} />
-                    // </Link>
                     )
                 }
 
